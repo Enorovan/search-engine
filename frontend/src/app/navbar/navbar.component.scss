@@ -1,0 +1,30 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: green;
+    border-bottom: 5px solid greenyellow;
+    /*padding-left: 20%;*/
+  }
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    font-family: "Dancing Script";
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+  
+li a:hover {
+    color: black;
+    background-color: greenyellow;
+}

@@ -1,0 +1,39 @@
+<div>
+  <h1>Find Books</h1>
+
+  <form class="form" (submit)="findResult()">
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Word</mat-label>
+      <input matInput placeholder="Word" [formControl]="word">
+    </mat-form-field>
+    &nbsp;
+    <button type="submit" mat-icon-button (click)="findResult()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button type="button" mat-icon-button (click)="setIsRegEx()">
+      <mat-icon>tune</mat-icon>
+    </button>
+    <span>RegEx: {{isRegEx}}</span>
+  </form>
+  <div>
+    <a class="colonne1" mat-raised-button routerLink="/search/english" routerLinkActive="active">
+      <span class="fi fi-gb"></span>
+      &nbsp;English Books
+    </a>
+    <a class="colonne2" mat-raised-button routerLink="/search/french" routerLinkActive="active">
+      <span class="fi fi-fr"></span>
+      &nbsp;Livres en Français
+    </a>
+  </div>
+
+  <div>
+  <a class="colonne1" mat-raised-button routerLink="/search/german" routerLinkActive="active">
+    <span class="fi fi-de"></span>
+      &nbsp;Deutsche Bücher
+  </a>
+  <a class="colonne2" mat-raised-button  routerLink="/search/all" routerLinkActive="active">
+    <mat-icon inline=true>language</mat-icon>
+    &nbsp;Other Languages
+  </a>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+
+<div class="loading" *ngIf="!books">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div style="vertical-align: middle;" *ngIf="books">
+    <h1 *ngIf="href=='french'"> Livres en Français :</h1>
+    <h1 *ngIf="href=='english'"> English Books:</h1>
+    <h1 *ngIf="href=='german'"> Deutsche Bücher:</h1>
+    <h1 *ngIf="href=='all'"> All Books:</h1>
+    <h1 *ngIf="href!='french' && href!='english' && href!='german' && href!='all'"> Result:</h1>
+
+    <div *ngFor="let book of books">
+        <div class="books">
+            <a href="{{ bookUrl }}{{ book.id }}" target="_blank" (click)="upvote(book)">
+                <h2 >{{ book.title }}</h2>
+                <h3>Written by: {{ book.author }}</h3><br>
+                <img src="{{ book.urlImage }}"/><br>
+                <div *ngIf="href!='french' && href!='english' && href!='german' && href!='all'">
+                    <div *ngFor="let token of book.token">
+                        <a *ngIf="token.token === href">
+                            <a>Number of occurrences of {{href}}: {{ token.occurrences }}</a><br>
+                            <a>Frequency of {{href}}: {{ token.frequencies }}</a><br>
+                        </a>
+                    </div>
+                </div>
+                <mat-icon inline=true>mouse</mat-icon><span>{{ book.nbClick }}</span><br>
+                <div *ngFor="let position of positions">
+                    <div *ngFor="let pos of position">
+                        <div *ngIf="pos.id == book.id">
+                            <a>{{pos.token}}: [{{pos.line}}, {{pos.column}}]</a><br>
+                        </div>
+                    </div>
+                </div>
+                <div *ngFor="let score of scores">
+                    <div *ngIf="score.id == book.id">
+                        <a>Score of {{book.title}}: {{ score.score }}</a><br>
+                    </div>
+                </div>
+                <button type="button" mat-raised-button (click)="getSuggestions(book.id)">
+                    Suggestions
+                </button>
+                <div *ngIf="scores && suggestions">
+                <a *ngIf="currentBookId === book.id">Suggestions:</a><br>
+                    <div *ngFor="let suggestion of suggestions">
+                        <a *ngIf="currentBookId === book.id"> {{suggestion.title}}</a><br>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

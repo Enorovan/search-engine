@@ -1,0 +1,58 @@
+.form {
+    width: 50%;
+    margin: auto;
+    white-space: nowrap;
+
+    button {
+        color: green;
+    }
+}
+  
+.field {
+    width: 100%;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: green !important;
+}
+  
+::ng-deep.mat-form-field-ripple {
+   background-color: green !important;;
+}
+
+.colonne1 {
+    margin-top: 2.5%;
+    margin-left: 5%;
+    padding: 2.5%;
+    width: 44%;
+    font-family: "Dancing Script";
+    text-align: center;
+    font-size: 36px;
+
+    mat-icon {
+        font-size: 60px;
+    }
+}
+
+.colonne2 {
+    margin-top: 2.5%;
+    margin-left: 2%;
+    padding: 2.5%;
+    width: 44%;
+    font-family: "Dancing Script";
+    text-align: center;
+    font-size: 36px;
+
+    mat-icon {
+        font-size: 60px;
+    }
+}
+
+::ng-deep .warning{
+    color: black;
+    background: white !important;
+ }
+
+::ng-deep .mat-simple-snackbar-action  {
+    color: green;
+}
